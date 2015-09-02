@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <MMDrawerController.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Model"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UIViewController * leftDrawer = [storyboard instantiateViewControllerWithIdentifier:@"menulateralesx"];
+    UIViewController * center = [storyboard instantiateInitialViewController];
+    UIViewController * rightDrawer = nil;
+    
+    MMDrawerController * drawerController = [[MMDrawerController alloc]
+                                             initWithCenterViewController:center
+                                             leftDrawerViewController:leftDrawer
+                                             rightDrawerViewController:rightDrawer];
+    
+    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModePanningNavigationBar;
+    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    
+    self.window.rootViewController = drawerController;
     return YES;
 }
 
@@ -40,6 +58,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [MagicalRecord cleanUp];
 }
 
 @end

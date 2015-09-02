@@ -6,21 +6,63 @@
 // project.
 
 
-// FMDB
-#define COCOAPODS_POD_AVAILABLE_FMDB
-#define COCOAPODS_VERSION_MAJOR_FMDB 2
-#define COCOAPODS_VERSION_MINOR_FMDB 5
-#define COCOAPODS_VERSION_PATCH_FMDB 0
+// MMDrawerController
+#define COCOAPODS_POD_AVAILABLE_MMDrawerController
+#define COCOAPODS_VERSION_MAJOR_MMDrawerController 0
+#define COCOAPODS_VERSION_MINOR_MMDrawerController 6
+#define COCOAPODS_VERSION_PATCH_MMDrawerController 0
 
-// FMDB/common
-#define COCOAPODS_POD_AVAILABLE_FMDB_common
-#define COCOAPODS_VERSION_MAJOR_FMDB_common 2
-#define COCOAPODS_VERSION_MINOR_FMDB_common 5
-#define COCOAPODS_VERSION_PATCH_FMDB_common 0
+// MMDrawerController/Core
+#define COCOAPODS_POD_AVAILABLE_MMDrawerController_Core
+#define COCOAPODS_VERSION_MAJOR_MMDrawerController_Core 0
+#define COCOAPODS_VERSION_MINOR_MMDrawerController_Core 6
+#define COCOAPODS_VERSION_PATCH_MMDrawerController_Core 0
 
-// FMDB/standard
-#define COCOAPODS_POD_AVAILABLE_FMDB_standard
-#define COCOAPODS_VERSION_MAJOR_FMDB_standard 2
-#define COCOAPODS_VERSION_MINOR_FMDB_standard 5
-#define COCOAPODS_VERSION_PATCH_FMDB_standard 0
+// MMDrawerController/MMDrawerBarButtonItem
+#define COCOAPODS_POD_AVAILABLE_MMDrawerController_MMDrawerBarButtonItem
+#define COCOAPODS_VERSION_MAJOR_MMDrawerController_MMDrawerBarButtonItem 0
+#define COCOAPODS_VERSION_MINOR_MMDrawerController_MMDrawerBarButtonItem 6
+#define COCOAPODS_VERSION_PATCH_MMDrawerController_MMDrawerBarButtonItem 0
+
+// MMDrawerController/MMDrawerVisualStates
+#define COCOAPODS_POD_AVAILABLE_MMDrawerController_MMDrawerVisualStates
+#define COCOAPODS_VERSION_MAJOR_MMDrawerController_MMDrawerVisualStates 0
+#define COCOAPODS_VERSION_MINOR_MMDrawerController_MMDrawerVisualStates 6
+#define COCOAPODS_VERSION_PATCH_MMDrawerController_MMDrawerVisualStates 0
+
+// MMDrawerController/Subclass
+#define COCOAPODS_POD_AVAILABLE_MMDrawerController_Subclass
+#define COCOAPODS_VERSION_MAJOR_MMDrawerController_Subclass 0
+#define COCOAPODS_VERSION_MINOR_MMDrawerController_Subclass 6
+#define COCOAPODS_VERSION_PATCH_MMDrawerController_Subclass 0
+
+// MagicalRecord
+#define COCOAPODS_POD_AVAILABLE_MagicalRecord
+#define COCOAPODS_VERSION_MAJOR_MagicalRecord 2
+#define COCOAPODS_VERSION_MINOR_MagicalRecord 3
+#define COCOAPODS_VERSION_PATCH_MagicalRecord 0
+
+// ReactiveCocoa
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa 5
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa 0
+
+// ReactiveCocoa/Core
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_Core
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_Core 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_Core 5
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_Core 0
+
+// ReactiveCocoa/UI
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_UI
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_UI 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_UI 5
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_UI 0
+
+// ReactiveCocoa/no-arc
+#define COCOAPODS_POD_AVAILABLE_ReactiveCocoa_no_arc
+#define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_no_arc 2
+#define COCOAPODS_VERSION_MINOR_ReactiveCocoa_no_arc 5
+#define COCOAPODS_VERSION_PATCH_ReactiveCocoa_no_arc 0
 

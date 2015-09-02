@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Contatto" representedClassName="Contatto" syncable="YES">
+        <attribute name="cognome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idContatto" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="indirizzo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="numeri" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Numero" inverseName="contatto" inverseEntity="Numero" syncable="YES"/>
+    </entity>
+    <entity name="Numero" representedClassName="Numero" syncable="YES">
+        <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contatto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contatto" inverseName="numeri" inverseEntity="Contatto" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Contatto" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Numero" positionX="-54" positionY="54" width="128" height="90"/>
+    </elements>
+</model>

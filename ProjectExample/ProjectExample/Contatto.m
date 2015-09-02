@@ -1,13 +1,13 @@
-//
-//  Contatto.m
-//  ProjectExample
-//
-//  Created by Simone on 01/09/15.
-//  Copyright (c) 2015 bsdsoftware.it. All rights reserved.
-//
-
 #import "Contatto.h"
 
+@interface Contatto ()
+
+// Private interface goes here.
+
+@end
+
 @implementation Contatto
+
+// Custom logic goes here.
 
 @end

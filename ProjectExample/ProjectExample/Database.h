@@ -16,5 +16,8 @@
 - (void)connetti;
 - (void)disconnetti;
 - (NSArray *) tuttiContatti;
+- (void) aggiungiContatto:(NSString *)nome cognome:(NSString *)cognome numero:(NSString *)numero email:(NSString *) email indirizzo:(NSString *)indirizzo;
+- (void)updateContatto:(NSInteger) key nome:(NSString *)nome cognome:(NSString *)cognome numero:(NSString *)numero email:(NSString *)email indirizzo:(NSString *)indirizzo;
 
+- (void) eliminaContatto:(NSInteger) key;
 @end

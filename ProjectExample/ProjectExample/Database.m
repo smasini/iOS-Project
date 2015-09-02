@@ -7,11 +7,11 @@
 //
 
 #import "Database.h"
-#import <FMDB.h>
 #import "Contatto.h"
+#import "Numero.h"
 
 @interface Database ()
-@property(nonatomic, strong) FMDatabase *db;
+@property(nonatomic, strong) NSManagedObjectContext *context;
 @end
 
 @implementation Database
@@ -19,47 +19,63 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-         self.db = [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
+        
     }
     return self;
 }
 
-- (void)creaTabelle {
+- (void) connetti{
+    self.context = [NSManagedObjectContext MR_context];
+}
+
+- (void)disconnetti{
+    self.context = nil;
+}
+
+- (void)aggiungiContatto:(NSString *)nome cognome:(NSString *)cognome numero:(NSString *)numero email:(NSString *)email indirizzo:(NSString *)indirizzo {
+    Contatto *contatto = [Contatto MR_createEntityInContext:self.context];
+    contatto.nome = nome;
+    contatto.cognome = cognome;
+    contatto.indirizzo = indirizzo;
+    contatto.email = email;
+    Numero *num = [Numero MR_createEntityInContext:self.context];
+    num.numero = numero;
+    num.tipo = @"Tel;";
+    [contatto addNumeriObject:num];
+    //contatto.numero = numero;
+    //contatto.fax = @"asd";
+    NSUInteger count = [Contatto MR_countOfEntitiesWithContext:self.context];
+    contatto.idContattoValue = (int) count;
     
-    [self.db executeStatements:@"CREATE TABLE IF NOT EXISTS Contatti (ID int PRIMARY KEY, Nome TEXT, Cognome TEXT, Numero TEXT, Email TEXT, Indirizzo TEXT);"];
-    
-  /*  [self.db executeStatements:@"INSERT INTO Contatti VALUES(1, 'Simone', 'Masini', '07654567', 'smasini@bsdsoftware.it', 'via montiano');"];*/
+    [self.context MR_saveToPersistentStoreAndWait];
     
 }
 
-- (void)connetti {
-    BOOL isOpen = [self.db open];
-    if(!isOpen){
-        @throw [NSException exceptionWithName:@"DBError" reason:@"Impossibile aprire il db" userInfo:nil];
-    }
-    [self creaTabelle];
+- (void)updateContatto:(NSInteger) key nome:(NSString *)nome cognome:(NSString *)cognome numero:(NSString *)numero email:(NSString *)email indirizzo:(NSString *)indirizzo {
+    Contatto *contatto = [Contatto MR_findFirstByAttribute:@"idContatto" withValue:@(key) inContext:self.context];
+    contatto.nome = nome;
+    contatto.cognome = cognome;
+    contatto.indirizzo = indirizzo;
+    contatto.email = email;
+    Numero *num = [Numero MR_createEntityInContext:self.context];
+    num.numero = numero;
+    num.tipo = @"Tel;";
+    [contatto addNumeriObject:num];
+    
+    [self.context MR_saveToPersistentStoreAndWait];
 }
 
-- (void)disconnetti {
-    [self.db close];
+- (void)eliminaContatto:(NSInteger)key {
+    Contatto *contatto = [Contatto MR_findFirstByAttribute:@"idContatto" withValue:@(key) inContext:self.context];
+    [contatto MR_deleteEntityInContext:self.context];
 }
+
+
 
 - (NSArray *)tuttiContatti {
-    FMResultSet *result = [self.db executeQuery:@"SELECT * FROM Contatti"];
-    NSMutableArray *contatti = [NSMutableArray array];
-    while ([result next]) {
-        Contatto *contatto = [[Contatto alloc]init];
-        contatto.id = [result intForColumn:@"ID"];
-        contatto.nome = [result stringForColumn:@"Nome"];
-        contatto.cognome = [result stringForColumn:@"Cognome"];
-        contatto.numero = [result stringForColumn:@"Numero"];
-        contatto.email = [result stringForColumn:@"Email"];
-        contatto.indirizzo = [result stringForColumn:@"Indirizzo"];
-        
-        [contatti addObject:contatto];
-    }
-    [result close];
-    return contatti;
+
+    return [Contatto MR_findAllInContext:self.context];
+    
 }
 
 @end
